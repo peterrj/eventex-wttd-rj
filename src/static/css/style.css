@@ -1,0 +1,70 @@
+body {
+	color: #97b15e;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+	background-color:#051c00;
+}
+.clear{clear:both;}
+* {margin: 0px;padding: 0px;}
+#container {
+	margin: 0 auto;
+	text-align: left;
+	width: 767px;
+}
+a{color:#80ba04;}
+a:hover{color:#b7fb24;}
+/********************** Header ***************************/
+#header {
+	width:767px;
+	height:404px;
+	position:relative;
+}
+
+/********************** Welcome ***************************/
+
+#welcome h1{
+	margin: 10px 10px 10px 110px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: #7eae19;}
+#welcome p{
+margin: 10px 10px 10px 110px;width:416px;}
+#welcome a{}
+
+/********************** News ***************************/
+#news {
+	background-image:url(images/line.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 10px 10px 10px 110px;
+}
+#news h3{
+	margin: 20px 10px 15px 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: #7eae19;
+}
+.newsitem{float:left;width:275px;
+display:inline;}
+.newsitem a{}
+.newsitem img{float:left;margin-right:10px;}
+.newsitem span{
+	color:#97b15e;
+	font-size: 9px;
+	font-weight: 900;
+}
+.newsitem p{margin: 10px 10px 15px 10px;}
+/********************** Footer ***************************/
+#footer {
+	background-image:url(images/line.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 10px 10px 10px 110px;
+	text-align:center;
+}
