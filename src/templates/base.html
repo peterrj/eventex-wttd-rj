@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" />
+		<title>Eventex - Inscricao</title>
+	</head> 
+	<body>
+		<div id="container">
+			<div id="header">
+				<center>
+					<img src="{{ STATIC_URL }}img/header.jpg"/>
+				</center>
+			</div>
+			<hr>
+			<div id="news">
+				{% block content %}
+				{% endblock content %}
+			</div>
+			<hr>
+			<div id="footer"> </div>
+		</div> 
+	</body>
+</html>

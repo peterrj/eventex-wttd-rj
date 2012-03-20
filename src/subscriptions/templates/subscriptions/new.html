@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div id="welcome">
+    	<h1>Formulario de inscricao</h1>
+    </div>
+    <div id="news">
+	    <form action="." method="POST">
+	        {% csrf_token %}
+	        {{ form.as_p }}
+	        <input type="submit" value="Enviar!" class="button">
+	    </form>
+	</div>
+{% endblock content %}
+
