@@ -60,6 +60,33 @@ display:inline;}
 	font-weight: 900;
 }
 .newsitem p{margin: 10px 10px 15px 10px;}
+
+#formulario form {
+    padding: 10px 0;
+}
+
+#formulario input {
+    display: block;
+    margin: 5px 0;
+    width: 300px;
+}
+
+#formulario input[type=submit] {
+    width: 100px;
+}
+
+#formulario input[type=submit]:hover {
+    background-color: #ccc;
+}
+
+#formulario a:hover {
+    text-decoration: none;
+}
+
+#formulario .errorlist {
+    list-style: none;
+    color: #c11;
+}
 /********************** Footer ***************************/
 #footer {
 	background-image:url(images/line.jpg);

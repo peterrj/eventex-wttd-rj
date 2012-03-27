@@ -3,10 +3,11 @@
 	<div id="welcome">
     	<h1>Formulario de inscricao</h1>
     </div>
-    <div id="news">
+    <div id="formulario">
 	    <form action="." method="POST">
 	        {% csrf_token %}
 	        {{ form.as_p }}
+	        <BR>
 	        <input type="submit" value="Enviar!" class="button">
 	    </form>
 	</div>
