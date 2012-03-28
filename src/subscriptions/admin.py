@@ -9,12 +9,12 @@ from django.http import HttpResponse
 class SubscriptionAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today', 'paid')
     
-    list_filter = ['created_at', 'paid']
+    list_filter = ['created_at',]
 
     actions = ['mark_as_paid']
 
     def mark_as_paid(self, request, queryset):
-    	count = queryset.update(paid=True)
+    	#count = queryset.update(paid=True)
 
     	msg = ungettext(
     		u'%(count)d inscricao foi marcada como paga',
