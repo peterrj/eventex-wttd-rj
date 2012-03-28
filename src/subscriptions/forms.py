@@ -1,4 +1,4 @@
-
+#-*- coding: utf-8 -*-
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from subscriptions.models import Subscription
@@ -28,25 +28,22 @@ class PhoneField(forms.MultiValueField):
 	def compress(self, data_list): 
 		if not data_list:
 			return none
-		if data_list[0] in EMPTY_VALUES:
-			raise forms.ValidationError(u'DDD inválido.') 
-		if data_list[1] in EMPTY_VALUES:
-			raise forms.ValidationError(u'Número inválido.') 
+		if data_list[0] == '':
+			raise forms.ValidationError(u'DDD invalido.') 
+		if data_list[1] == '':
+			raise forms.ValidationError(u'Numero invalido.') 
 		return '%s-%s' % tuple(data_list)
 
-class SubscriptionForm(forms.Form):
+class SubscriptionForm(forms.ModelForm):
     name = forms.CharField(label=_('Nome'), max_length=100)
     cpf = forms.CharField(label=_('CPF'), max_length=11, min_length=11,
     	validators=[CpfValidator])
     email = forms.EmailField(label=_('E-mail'))
     phone = PhoneField(label=_('Telefone'), required=False)
 
-    def clean(self):
-    	if not self.cleaned_data.get('email') and \
-    	not self.cleaned_data.get('phone'):
-    		raise forms.ValidationError(
-    			_(u'Voce precisa informar seu e-mail ou seu telefone.'))
-    	return self.cleaned_data
+    class Meta:
+    	model = Subscription
+    	exclude = ('created_at', 'paid')
 
     def _unique_check(self, fieldname, error_message):
     	param = { fieldname: self.cleaned_data[fieldname] }
@@ -61,3 +58,13 @@ class SubscriptionForm(forms.Form):
 
     def clean_email(self):
     	return self._unique_check('email', _(u'E-mail ja inscrito.'))
+
+    def clean(self):
+    	super(SubscriptionForm, self).clean()
+
+    	if not self.cleaned_data.get('email') and \
+    	not self.cleaned_data.get('phone'):
+    		raise forms.ValidationError(
+    			_(u'Voce precisa informar seu e-mail ou seu telefone.'))
+    	return self.cleaned_data
+    	

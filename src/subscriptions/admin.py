@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import datetime
 from django.contrib import admin
 from subscriptions.models import Subscription
@@ -7,14 +8,14 @@ from django.conf.urls.defaults import patterns, url
 from django.http import HttpResponse
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today', )
+    list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today', 'paid')
     
-    list_filter = ['created_at',]
+    list_filter = ['created_at', 'paid']
 
     actions = ['mark_as_paid']
 
     def mark_as_paid(self, request, queryset):
-    	#count = queryset.update(paid=True)
+    	count = queryset.update(paid=True)
 
     	msg = ungettext(
     		u'%(count)d inscricao foi marcada como paga',
@@ -31,7 +32,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
     subscribed_today.boolean = True
 
     date_hierarchy = 'created_at'
-    search_fields = ('name', 'cpf','email', 'phone', 'created_at') 
+    search_fields = ('name', 'cpf','email', 'phone', 'created_at', 'paid') 
 
     def export_subscriptions(self, request):
         subscriptions = self.model.objects.all()

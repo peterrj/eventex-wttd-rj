@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 # Create your views here.
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.template import RequestContext
@@ -21,7 +22,7 @@ def create(request):
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[subscription.email])
     return HttpResponseRedirect(
-        reverse('subscriptions:success', args=[ subscriptions.pk ]))
+        reverse('subscriptions:success', args=[ subscription.pk ]))
 
 def new(request):
     form = SubscriptionForm(initial={
