@@ -7,7 +7,7 @@ from django.conf.urls.defaults import patterns, url
 from django.http import HttpResponse
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today', 'paid')
+    list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today', )
     
     list_filter = ['created_at',]
 
