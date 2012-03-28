@@ -5,4 +5,5 @@ lib
 local
 Scripts
 .Python
+.DS_Store
 *.pyc
